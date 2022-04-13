@@ -1,22 +1,26 @@
 import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+
+  const REST_API_URL = 'http://localhost:4000/data';
+  const [data, setData] = useState(" ");
+
+  fetch(REST_API_URL, {
+      method: 'GET',
+      mode: 'no-cors',
+    }).then(res => {
+      return res.json()
+    }).then(res => setData(res));
+  
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+            { data }
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
