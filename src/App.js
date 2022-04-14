@@ -4,7 +4,7 @@ import './App.css';
 
 function App() {
 
-  const REST_API_URL = 'http://localhost:4000/data';
+  const REST_API_URL = 'http://172.18.0.3:4000/data';
   const [data, setData] = useState(" ");
 
   fetch(REST_API_URL, {
